@@ -2,8 +2,11 @@
 import logo from "../assets/images/logo.png"
 // mui icons
 import PlayCircleFilledWhiteOutlinedIcon from '@mui/icons-material/PlayCircleFilledWhiteOutlined';
+//react router
+import { useNavigate } from "react-router-dom"
 
 export default function Homepage(){
+    const navigate = useNavigate()
     return(
         <div className="bg-homepageImage w-screen h-screen z-0 overflow-scroll sm:py-8 no-scrollbar">
             {/* overshadow */}
@@ -13,11 +16,11 @@ export default function Homepage(){
                 {/* header */}
                 <header className="space-y-3 flex flex-col items-center">
                     {/* logo */}
-                    <img src={logo} alt="fmovies-logo" width={200}/>
+                    <img src={logo} alt="fmovies-logo" width={200} onClick={()=>{navigate("/")}} className="cursor-pointer"/>
                     {/* title */}
                     <h1 className="text-f-dark-zinc font-bold text-center text-3xl py-3">Watch Movies Online in HD for Free!</h1>
                     {/* button */}
-                    <button className="bg-f-blue flex items-center p-2 rounded-md px-8 sm:px-12">
+                    <button className="bg-f-blue flex items-center p-2 rounded-md px-8 sm:px-12 hover:bg-f-light-blue" onClick={()=>{navigate("home")}}>
                         Go to Homepage <PlayCircleFilledWhiteOutlinedIcon className="ml-1"/>
                     </button>
                 </header>

@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // importing components
-import { Homepage } from "./pages";
+import { Homepage, SecondaryHomepage } from "./pages";
 
 /*
 ************************************
@@ -12,6 +12,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Homepage />,
     },
+    {
+        path: "home",
+        element: <SecondaryHomepage/>
+    }
 ]);
 
 export default function App() {
