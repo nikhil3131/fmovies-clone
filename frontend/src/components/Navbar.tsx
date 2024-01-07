@@ -3,12 +3,14 @@ import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { useState } from "react";
+import Login from "./Login"
 
 export default function Navbar(){
     const [showSearchBar, setShowSearchBar] = useState(false)
+    const [loginClicked, isLoginClicked] = useState(false)
     return(
-        <nav className="absolute top-4 left-4 right-4">
-            <div className="flex justify-between items-center">
+        <nav className="absolute top-0 left-0 right-0">
+            <div className="flex justify-between items-center pt-4 px-4">
                 {/* fmovies logo */}
                 <div className="w-36">
                     <img src={logo} alt="fmovies-logo" className="object-cover"/>
@@ -25,7 +27,7 @@ export default function Navbar(){
                 </button>
 
                 {/* login button */}
-                <button className="flex items-center space-x-1 text-white sm:border-2 p-1 px-4 rounded-full sm:hover:bg-f-blue hover:border-f-light-blue hover:text-black duration-150 transition-colors border-white">
+                <button onClick={()=> {isLoginClicked(!loginClicked)}} className="flex items-center space-x-1 text-white sm:border-2 p-1 px-4 rounded-full sm:hover:bg-f-blue hover:border-f-light-blue hover:text-black duration-150 transition-colors border-white">
                     <span className="hidden sm:flex">Login</span>
                     <ArrowForwardOutlinedIcon/>
                 </button>
@@ -35,6 +37,8 @@ export default function Navbar(){
             <div className="flex sm:hidden pt-2">
                 {showSearchBar && <SearchBar/>}
             </div>
+
+            {loginClicked && <Login/>}
         </nav>
     )
 }
