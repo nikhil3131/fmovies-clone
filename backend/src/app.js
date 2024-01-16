@@ -6,15 +6,10 @@ const express = require('express')
 //imported files and functions
 const errorHandler = require('./middlewares/errorHandler')
 const notFound = require('./middlewares/notFound')
-const { customApiError } = require('./utils/customError')
 const { connect } = require('./db/config')
 
 //express 
 const app = express()
-
-app.get('/', (req,res)=>{
-    res.send("yo")
-})
 
 //route doesnot exists
 app.use('*', notFound)

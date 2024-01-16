@@ -45,7 +45,7 @@ User.init({
 
 ;(async function(){
     try {
-        await User.sync({ force: true });
+        await User.sync({ alter: true });
         console.log("The table for the User model was just (re)created!");
     } catch (error) {
         console.log("unable to sync user model")
